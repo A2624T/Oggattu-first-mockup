@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleanup App Prototype</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .app-container {
+            width: 100%;
+            max-width: 400px; /* Simulates a mobile screen width */
+            background-color: white;
+            border-radius: 1.5rem; /* Rounded corners */
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            min-height: 80vh; /* Adjust as needed */
+        }
+        .header {
+            background-color: #3b82f6; /* Blue for header */
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+        }
+        .map-area {
+            background-color: #e0e0e0;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.25rem;
+            color: #6b7280;
+            position: relative;
+        }
+        .map-pin {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: red; /* Placeholder for a map pin */
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            transform: translate(-50%, -100%); /* Position pin correctly */
+            top: 50%;
+            left: 50%;
+        }
+        .content-area {
+            padding: 1.5rem;
+            background-color: white;
+            border-bottom-left-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+        }
+        .button {
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .button-primary {
+            background-color: #22c55e; /* Green for primary action */
+            color: white;
+        }
+        .button-primary:hover {
+            background-color: #16a34a;
+        }
+        .read-guidelines {
+            background-color: #f97316; /* Orange for guidelines */
+            color: white;
+        }
+        .read-guidelines:hover {
+            background-color: #ea580c;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Bar -->
+        <div class="header">
+            <svg class="w-6 h-6 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <span class="text-xl font-bold">Oggattu</span>
+        </div>
+
+        <!-- Main Map/Image Area -->
+        <div class="map-area">
+            <img src="https://placehold.co/400x300/CCCCCC/666666?text=Map+Area" alt="Map showing cleanup spot" class="w-full h-full object-cover">
+            <!-- Simulating a map pin visually -->
+            <div class="map-pin"></div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <div class="text-sm text-gray-500 mb-2">Spot:553</div>
+            <div class="text-2xl font-bold text-gray-800 mb-4">Mangalore District Cleanup Project</div>
+            
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center text-green-700 text-lg">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V6m0 4v4m0 4v2m-6-4h-2m-2 0H6m-4 0h2m10 0h2m2 0h2m-4-6h-2m-2 0h-2m-4-6H6m-4 6h2"></path></svg>
+                    <span class="font-semibold">pay : 124800</span>
+                </div>
+                <div class="text-gray-600 text-xs">2 10:52</div>
+            </div>
+
+            <div class="mb-4">
+                <p class="text-gray-700 mb-2">Spot 553 pays up to 224800, based on your adherence to Spot 553 guidelines. read the guidelines carefully.</p>
+                <p class="text-blue-600 text-sm cursor-pointer hover:underline read-guidelines inline-block">Read guidelines</p>
+            </div>
+
+            <button id="startCleanupBtn" class="button button-primary w-full text-lg">Start Cleanup</button>
+            <p class="text-gray-600 text-xs mt-2 text-center">Once cleanup is started, you'll have to show your cleanup process, tools used, give live photo or video proof of your adhering to Spot 553 guidelines.</p>
+            <p class="text-red-500 text-xs mt-1 text-center font-semibold">Your payment will be dependent on the evidence you submit here.</p>
+            <p class="text-gray-600 text-xs mt-1 text-center">Once "Start Cleanup" is selected, please do not terminate the app. The photos and videos can only be directly captured using Oggattu app and cannot be uploaded from device storage.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('startCleanupBtn').addEventListener('click', function() {
+            alert('Cleanup process started! Please adhere to guidelines.');
+            // In a real app, this would trigger navigation or state changes
+        });
+    </script>
+</body>
+</html>
